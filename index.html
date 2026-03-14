@@ -73,19 +73,14 @@
       letter-spacing: 0.5px;
     }
 
-    .logo-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #ff5a36, #ffb703);
-      color: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 1rem;
-      box-shadow: 0 8px 24px rgba(255, 140, 0, 0.25);
-    }
+    .site-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 24px rgba(255, 140, 0, 0.25);
+}
 
     .nav-links {
       display: flex;
@@ -351,10 +346,10 @@
 <body>
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="#" class="brand">
-        <div class="logo-box">BG</div>
-        <span>BRAINROT GAMING</span>
-      </a>
+     <a href="#" class="brand">
+  <img src="logo.png" alt="Brainrot Gaming Logo" class="site-logo">
+  <span>BRAINROT GAMING</span>
+</a>
 
       <div class="nav-links">
         <a href="#about">About</a>
