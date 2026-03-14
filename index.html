@@ -94,9 +94,20 @@ box-shadow: 0 2px 15px rgba(255,183,3,0.4);
       font-weight: 600;
       transition: 0.2s ease;
     }
+/* Navigation Glow Hover */
 
-    .nav-links a:hover {
-      color: #ffb703;
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffb703;
+    text-shadow:
+        0 0 5px #ffb703,
+        0 0 10px #ffb703,
+        0 0 20px #ffb703;
+}
     }
 
     .hero {
@@ -361,7 +372,18 @@ box-shadow: 0 2px 15px rgba(255,183,3,0.4);
   transition: 0.3s;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
-    }
+  /* Video thumbnail hover animation */
+
+.video-wrap {
+overflow: hidden;
+border-radius: 20px;
+transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.video-wrap:hover {
+transform: scale(1.02);
+box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
   </style>
 </head>
 <body>
