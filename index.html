@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brainrot Gaming</title>
+  <meta
+    name="description"
+    content="Brainrot Gaming - Rage, chaos, gaming. Assassin's Creed gameplay, funny rage moments, epic fails, gaming highlights, shorts, and quick clips."
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 14, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #ffb703;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff5a36;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+        url('banner.jpg') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 60px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255, 90, 54, 0.15);
+      color: #ff8c66;
+      border: 1px solid rgba(255, 140, 102, 0.35);
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      color: #ffb703;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #e8e8e8;
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff5a36, #ffb703);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #ffb703;
+    }
+
+    .section-subtitle {
+      color: #cfcfcf;
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: #cfcfcf;
+      font-size: 0.98rem;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .stats {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 183, 3, 0.08);
+      border: 1px solid rgba(255, 183, 3, 0.18);
+    }
+
+    .stat strong {
+      display: block;
+      color: #ffb703;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .social-link {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.2s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .contact-box {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,90,54,0.14), rgba(255,183,3,0.14));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 36px 24px;
+    }
+
+    .contact-box p {
+      color: #e7e7e7;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 0;
+      text-align: center;
+      color: #bcbcbc;
+      font-size: 0.95rem;
+      background: #09090c;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3,
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 90px 0 70px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">BRAINROT GAMING</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#content">Content</a>
+        <a href="#socials">Socials</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="tag">RAGE • CHAOS • GAMING</div>
+        <h1>Welcome to <span>Brainrot Gaming</span></h1>
+        <p>
+          Assassin’s Creed gameplay, funny rage moments, crazy challenges,
+          epic fails, shorts, and intense gaming moments where things do not
+          always go according to plan.
+        </p>
+        <div class="button-group">
+          <a
+            class="btn btn-primary"
+            href="https://youtube.com/@brainrotgaming61?si=jeIyWwk6SBZ8SC_k"
+            target="_blank"
+          >
+            Watch on YouTube
+          </a>
+          <a class="btn btn-secondary" href="#about">Explore the Website</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About the Channel</h2>
+      <p class="section-subtitle">
+        Brainrot Gaming is all about real gaming moments — the wins, the fails,
+        the rage, and the chaos. This channel focuses on entertaining gameplay,
+        funny reactions, challenge moments, and short-form clips that show what
+        gaming is really like when the pressure hits.
+      </p>
+
+      <div class="about-box">
+        <div class="card">
+          <h3>What you can expect</h3>
+          <p>
+            If you enjoy gaming, funny moments, and a little bit of rage,
+            you’re in the right place. Here you’ll find Assassin’s Creed gameplay,
+            crazy challenges, epic fails, and moments where the game tests my
+            patience.
+          </p>
+          <br />
+          <p>
+            I upload gameplay highlights, funny clips, and intense moments where
+            sometimes I dominate the mission… and sometimes I die 30 times trying.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>Main Focus</strong>
+            Gaming content with a strong Assassin’s Creed vibe, funny fails,
+            highlight moments, and rage clips.
+          </div>
+          <div class="stat">
+            <strong>Content Style</strong>
+            Gameplay highlights, shorts, quick clips, and entertaining reactions.
+          </div>
+          <div class="stat">
+            <strong>Based In</strong>
+            Brisbane, Australia
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="content">
+    <div class="container">
+      <h2 class="section-title">Featured Content</h2>
+      <p class="section-subtitle">
+        Expect regular gaming uploads built around chaos, challenge, frustration,
+        and those satisfying moments when everything finally works.
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Assassin’s Creed Gameplay</h3>
+          <p>
+            Story missions, action sequences, stealth moments, and gameplay that
+            keeps things exciting from start to finish.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Funny Rage Moments</h3>
+          <p>
+            Honest reactions, frustrating fails, and the kind of moments every
+            gamer understands immediately.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Shorts & Highlights</h3>
+          <p>
+            Quick clips, memorable moments, and bite-sized content perfect for
+            viewers who want the best parts fast.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="socials">
+    <div class="container">
+      <h2 class="section-title">Follow Brainrot Gaming</h2>
+      <p class="section-subtitle">
+        Stay connected across platforms for gaming content, clips, updates,
+        and more.
+      </p>
+
+      <div class="socials">
+        <a class="social-link" href="https://youtube.com/@brainrotgaming61?si=jeIyWwk6SBZ8SC_k" target="_blank">YouTube</a>
+        <a class="social-link" href="https://www.facebook.com/share/1KZwLpGJ67/?mibextid=wwXIfr" target="_blank">Facebook</a>
+        <a class="social-link" href="https://www.instagram.com/k_r_ish1501?igsh=MWJ3dHkxOHdrdTVv&utm_source=qr" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">Contact</h2>
+        <p>
+          For collaborations, business inquiries, or creator opportunities,
+          feel free to get in touch.
+        </p>
+        <a class="btn btn-primary" href="mailto:edvkrish@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Brainrot Gaming. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
