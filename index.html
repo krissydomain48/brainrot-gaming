@@ -616,7 +616,19 @@ allowfullscreen>
           </iframe>
         </div>
       </div>
+<section class="section" id="live-subs">
+  <div class="container">
+    <h2 class="section-title">Channel Growth</h2>
 
+    <div class="card">
+      <h3>Subscribers</h3>
+      <p id="subCount" style="font-size:2rem;font-weight:bold;color:#ffb703;">
+        Loading...
+      </p>
+    </div>
+
+  </div>
+</section>
       <section class="section" id="latest-videos">
   <div class="container">
     <h2 class="section-title">Latest Uploads</h2>
@@ -717,7 +729,13 @@ allowfullscreen>
 <h3>Total Views</h3>
 <p style="font-size:2rem;font-weight:bold;color:#ffb703;">50K+</p>
 </div>
-      
+   <div class="card">
+<h3>Subscribers</h3>
+<p id="subCount" style="font-size:2rem;font-weight:bold;color:#ffb703;">
+Loading...
+</p>
+</div>
+        
     </div>
   </div>
 </section> 
@@ -741,5 +759,26 @@ allowfullscreen>
   </div>
 </footer>
 
-</body>
+<script>
+async function getSubs() {
+
+const channelID = "UC0brnbM_0wJjJ3ARH8cuEYw";
+
+const response = await fetch(
+"https://api.socialcounts.org/youtube-live-subscriber-count/" + channelID
+);
+
+const data = await response.json();
+
+document.getElementById("subCount").innerText =
+data.est_sub;
+
+}
+
+getSubs();
+
+setInterval(getSubs, 10000);
+</script>
+    </body>
 </html>
+      
