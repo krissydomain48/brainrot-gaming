@@ -50,6 +50,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      position: relative;
       background: rgba(8, 9, 13, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 2px solid #ffb703;
@@ -384,7 +385,41 @@ transition: transform 0.35s ease, box-shadow 0.35s ease;
 transform: scale(1.02);
 box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
-  </style>
+/* Animated RGB Line Under Navbar */
+
+.navbar::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 3px;
+
+background: linear-gradient(
+90deg,
+#ffb703,
+#fb8500,
+#ff006e,
+#8338ec,
+#3a86ff,
+#ffb703
+);
+
+background-size: 300% 100%;
+
+animation: rgbFlow 6s linear infinite;
+}
+
+@keyframes rgbFlow {
+0% {
+background-position: 0% 50%;
+}
+100% {
+background-position: 300% 50%;
+}
+}
+
+      </style>
 </head>
 <body>
   <nav class="navbar">
