@@ -12,6 +12,7 @@
   <meta property="og:description" content="Watch Assassin's Creed gameplay, rage moments, and epic gaming highlights from Brainrot Gaming." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://krissydomain48.github.io/brainrot-gaming/" />
+  <meta property="og:image" content="https://img.youtube.com/vi/40A8PK2rOpM/maxresdefault.jpg" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZY73H7MY51"></script>
   <script>
@@ -386,6 +387,23 @@
       display: none;
     }
 
+    .floating-youtube {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      background: #ff0000;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 800;
+      z-index: 998;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    .floating-youtube:hover {
+      transform: translateY(-3px);
+    }
+
     .bot-bubble p {
       color: #f2f2f2;
       margin-bottom: 10px;
@@ -461,7 +479,15 @@
       .bot-bubble {
         left: 14px;
         right: 14px;
+        bottom: 74px;
         max-width: none;
+      }
+
+      .floating-youtube {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        text-align: center;
       }
     }
   </style>
@@ -655,6 +681,46 @@
     </div>
   </section>
 
+  <section class="section reveal" id="proof">
+    <div class="container">
+      <h2 class="section-title">Why People Watch Brainrot Gaming</h2>
+      <p class="section-subtitle">A few reasons visitors stick around instead of bouncing like confused NPCs.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>🔥 50K+ Views</h3>
+          <p>Thousands of viewers have already watched the chaos, rage moments, and gameplay highlights.</p>
+        </div>
+
+        <div class="card">
+          <h3>🎮 Real Gameplay</h3>
+          <p>No fake reactions, no overcooked nonsense. Just real gameplay, real fails, and real pressure moments.</p>
+        </div>
+
+        <div class="card">
+          <h3>⚡ Fast Highlights</h3>
+          <p>Quick clips, satisfying moments, and entertaining uploads that get to the point fast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="subscribe-widget">
+    <div class="container">
+      <div class="subscribe-box">
+        <h2 class="section-title">Subscribe Faster</h2>
+        <p>Make it stupidly easy for visitors to subscribe without making them hunt for your channel.</p>
+        <div style="margin-top:20px;">
+          <iframe
+            src="https://www.youtube.com/subscribe_embed?usegapi=1&channelid=UC0brnbM_0wJjJ3ARH8cuEYw&layout=full&count=default"
+            style="border:none;height:105px;width:100%;max-width:420px;background:transparent;"
+            title="YouTube subscribe button">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal" id="ask">
     <div class="container">
       <div class="contact-box">
@@ -705,9 +771,11 @@
 
   <div id="yt-bot" class="bot-bubble">
     <button class="bot-close" id="bot-close" aria-label="Close">×</button>
-    <p>Oi. Don’t just stare at the site. Hit the featured video first.</p>
-    <a class="btn btn-primary" href="#video">Go to Featured</a>
+    <p>Welcome in — start with the featured video and enjoy the best Brainrot Gaming chaos.</p>
+    <a class="btn btn-primary" href="#video">Watch Featured</a>
   </div>
+
+  <a id="floating-youtube" class="floating-youtube" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
 
   <script>
     async function getSubs() {
@@ -750,6 +818,17 @@
         ytBot.style.display = 'none';
       });
     }
+
+    document.querySelectorAll('a[href*="youtube"], a[href*="youtu.be"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_youtube', {
+            event_category: 'engagement',
+            event_label: link.href
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
