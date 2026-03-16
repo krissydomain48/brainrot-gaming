@@ -469,9 +469,17 @@
   <section class="section reveal" id="video">
     <div class="container">
       <h2 class="section-title">Featured Video</h2>
-      <p class="section-subtitle">A clean featured embed that sends people toward your best content without cluttering the page.</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/40A8PK2rOpM" title="Featured YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <p class="section-subtitle">The one video that should hook new visitors fast. Keep this as your strongest eye-catching upload.</p>
+      <div class="video-card">
+        <div class="video-wrap">
+          <iframe id="featuredVideoEmbed" src="https://www.youtube.com/embed/40A8PK2rOpM" title="Featured YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 id="featuredVideoTitle">Pure chaos: Brainrot Gaming featured pick</h3>
+        <p id="featuredVideoText">This section is meant to stop visitors and make them click. Use your most clickable, high-energy video here.</p>
+        <div class="button-group">
+          <a id="featuredVideoButton" class="btn btn-primary youtube-track" href="https://www.youtube.com/watch?v=40A8PK2rOpM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <a class="btn btn-secondary" href="#top-video">See another top pick</a>
+        </div>
       </div>
     </div>
   </section>
@@ -495,11 +503,10 @@
 
   <section class="section reveal" id="latest-videos">
     <div class="container">
-      <h2 class="section-title">Latest Uploads</h2>
-      <p class="section-subtitle">Automatically showing the newest videos from Brainrot Gaming through your uploads playlist.</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=UU0brnbM_0wJjJ3ARH8cuEYw" title="Brainrot Gaming Latest Uploads" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
+      <h2 class="section-title">Latest Videos</h2>
+      <p class="section-subtitle">The newest uploads from Brainrot Gaming.</p>
+
+      <div id="latestVideosGrid" class="grid grid-3"></div>
     </div>
   </section>
 
@@ -689,6 +696,8 @@
     const CHANNEL_ID = 'UC0brnbM_0wJjJ3ARH8cuEYw';
     const UPLOADS_PLAYLIST_ID = 'UU0brnbM_0wJjJ3ARH8cuEYw';
     const DEFAULT_TOP_VIDEO_ID = '40A8PK2rOpM';
+    const FEATURED_VIDEO_ID = '40A8PK2rOpM';
+    const FEATURED_VIDEO_TITLE = 'Pure chaos: Brainrot Gaming featured pick';
     const DEFAULT_TOP_VIDEO_TITLE = 'Top Brainrot Gaming pick';
     const YOUTUBE_API_KEY = ''; // Optional: paste a YouTube Data API key here later to auto-pull top public video by views.
 
@@ -715,6 +724,18 @@
       if (embed) embed.src = 'https://www.youtube.com/embed/' + videoId;
       if (title) title.textContent = titleText || DEFAULT_TOP_VIDEO_TITLE;
       if (text) text.textContent = bodyText || 'Currently showing a strong fallback video from Brainrot Gaming.';
+      if (button) button.href = 'https://www.youtube.com/watch?v=' + videoId;
+    }
+
+    function setFeaturedVideo(videoId, titleText, bodyText) {
+      const embed = document.getElementById('featuredVideoEmbed');
+      const title = document.getElementById('featuredVideoTitle');
+      const text = document.getElementById('featuredVideoText');
+      const button = document.getElementById('featuredVideoButton');
+
+      if (embed) embed.src = 'https://www.youtube.com/embed/' + videoId;
+      if (title) title.textContent = titleText || FEATURED_VIDEO_TITLE;
+      if (text) text.textContent = bodyText || 'This section is meant to stop visitors and make them click. Use your most clickable, high-energy video here.';
       if (button) button.href = 'https://www.youtube.com/watch?v=' + videoId;
     }
 
@@ -795,6 +816,12 @@
         });
       }
     }
+
+    setFeaturedVideo(
+      FEATURED_VIDEO_ID,
+      FEATURED_VIDEO_TITLE,
+      'This section is meant to stop visitors and make them click. Use your most clickable, high-energy video here.'
+    );
 
     getSubs();
     setInterval(getSubs, 10000);
