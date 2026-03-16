@@ -547,7 +547,7 @@
       <div class="grid grid-2">
         <div class="card">
           <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;">
-            <img src="webimage.jpg.png" alt="Shree Devkota, creator of Brainrot Gaming" style="width:160px; height:160px; object-fit:cover; object-position:center top; border-radius:18px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 10px 24px rgba(0,0,0,0.28);" />
+            <img src="creator.jpg" alt="Shree Devkota, creator of Brainrot Gaming" style="width:160px; height:160px; object-fit:cover; object-position:center top; border-radius:18px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 10px 24px rgba(0,0,0,0.28);" />
             <div style="flex:1; min-width:220px;">
               <h3>Shree Devkota</h3>
               <p><strong style="color:#ffb703;">Gaming Creator • Brisbane, Australia</strong></p>
@@ -729,6 +729,14 @@
     const FEATURED_VIDEO_TITLE = 'Pure chaos: Brainrot Gaming featured pick';
     const DEFAULT_TOP_VIDEO_TITLE = 'Top Brainrot Gaming pick';
     const YOUTUBE_API_KEY = ''; // Optional: paste a YouTube Data API key here later to auto-pull top public video by views.
+    const DEFAULT_LATEST_VIDEOS = [
+      { id: '40A8PK2rOpM', title: 'Pure chaos: Brainrot Gaming featured pick' },
+      { id: 'HOEzkRkBpUU', title: 'Latest Brainrot Gaming upload' },
+      { id: 'cvCnu4l_-B0', title: 'Another chaos-filled upload' },
+      { id: '6ibKn-aYxgI', title: 'Top highlight from the channel' },
+      { id: '40A8PK2rOpM', title: 'Rage moments and wild gameplay' },
+      { id: 'HOEzkRkBpUU', title: 'Fast-paced gaming highlights' }
+    ];
 
     async function getSubs() {
       try {
@@ -846,6 +854,24 @@
       }
     }
 
+    function loadLatestVideos() {
+      const grid = document.getElementById('latestVideosGrid');
+      if (!grid) return;
+
+      grid.innerHTML = DEFAULT_LATEST_VIDEOS.map((video) => `
+        <div class="video-card reveal visible">
+          <div class="video-wrap">
+            <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener noreferrer" class="youtube-track">
+              <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+            </a>
+          </div>
+          <h3>${video.title}</h3>
+          <p>Watch this Brainrot Gaming upload on YouTube.</p>
+          <a class="btn btn-secondary youtube-track" href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener noreferrer">Watch Video</a>
+        </div>
+      `).join('');
+    }
+
     setFeaturedVideo(
       FEATURED_VIDEO_ID,
       FEATURED_VIDEO_TITLE,
@@ -855,6 +881,7 @@
     getSubs();
     setInterval(getSubs, 10000);
     loadTopVideo();
+    loadLatestVideos();
     initReveal();
     initBot();
     trackOutboundClicks();
