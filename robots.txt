@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://krissydomain48.github.io/brainrot-gaming/sitemap.xml
+Sitemap: https://brainrot-gaming.com/sitemap.xml
