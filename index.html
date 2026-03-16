@@ -11,8 +11,10 @@
   <meta property="og:title" content="Brainrot Gaming | Gaming Highlights & Assassin's Creed Gameplay" />
   <meta property="og:description" content="Watch Assassin's Creed gameplay, rage moments, and epic gaming highlights from Brainrot Gaming." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://krissydomain48.github.io/brainrot-gaming/" />
+  <meta property="og:url" content="https://brainrot-gaming.com/" />
   <meta property="og:image" content="https://img.youtube.com/vi/40A8PK2rOpM/maxresdefault.jpg" />
+  <link rel="canonical" href="https://brainrot-gaming.com/" />
+  <link rel="icon" type="image/png" href="logo.png" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZY73H7MY51"></script>
   <script>
@@ -39,16 +41,8 @@
   </script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #08090d;
@@ -56,21 +50,9 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1150px, 92%); margin: auto; }
 
     .navbar {
       position: sticky;
@@ -81,7 +63,6 @@
       border-bottom: 1px solid rgba(255, 183, 3, 0.3);
       box-shadow: 0 2px 15px rgba(255, 183, 3, 0.15);
     }
-
     .navbar::after {
       content: "";
       position: absolute;
@@ -93,7 +74,6 @@
       background-size: 300% 100%;
       animation: rgbFlow 6s linear infinite;
     }
-
     @keyframes rgbFlow {
       0% { background-position: 0% 50%; }
       100% { background-position: 300% 50%; }
@@ -106,7 +86,6 @@
       padding: 16px 0;
       gap: 18px;
     }
-
     .brand {
       display: flex;
       align-items: center;
@@ -116,7 +95,6 @@
       color: #ffb703;
       letter-spacing: 0.5px;
     }
-
     .site-logo {
       width: 48px;
       height: 48px;
@@ -125,19 +103,16 @@
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow: 0 8px 24px rgba(255, 140, 0, 0.25);
     }
-
     .nav-links {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .nav-links a {
       color: #e9e9e9;
       font-weight: 600;
       transition: color 0.3s ease, text-shadow 0.3s ease;
     }
-
     .nav-links a:hover {
       color: #ffb703;
       text-shadow: 0 0 5px #ffb703, 0 0 10px #ffb703;
@@ -150,7 +125,6 @@
       background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.78)), url('banner.jpg.png') center/cover no-repeat;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
-
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -158,7 +132,6 @@
       align-items: center;
       padding: 70px 0;
     }
-
     .tag {
       display: inline-block;
       margin-bottom: 18px;
@@ -170,19 +143,14 @@
       font-weight: 700;
       font-size: 0.92rem;
     }
-
     .hero h1 {
       font-size: clamp(2.4rem, 6vw, 4.7rem);
       line-height: 1.05;
       margin-bottom: 18px;
     }
-
     .hero h1 span,
     .section-title,
-    .stat-number {
-      color: #ffb703;
-    }
-
+    .stat-number { color: #ffb703; }
     .hero p {
       font-size: 1.08rem;
       color: #e8e8e8;
@@ -197,7 +165,6 @@
       flex-wrap: wrap;
       gap: 14px;
     }
-
     .btn {
       display: inline-block;
       padding: 14px 22px;
@@ -206,17 +173,14 @@
       transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
       box-shadow: 0 0 10px rgba(255,183,3,0.18);
     }
-
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 10px rgba(255,183,3,0.4), 0 0 20px rgba(255,183,3,0.22);
     }
-
     .btn-primary {
       background: linear-gradient(135deg, #ff5a36, #ffb703);
       color: #111;
     }
-
     .btn-secondary {
       background: rgba(255, 255, 255, 0.06);
       color: #fff;
@@ -234,20 +198,15 @@
       border-radius: 20px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.22);
     }
-
     .hero-card,
     .card,
     .subscribe-box,
-    .contact-box {
-      padding: 24px;
-    }
-
+    .contact-box { padding: 24px; }
     .card,
     .hero-card,
     .video-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-
     .card:hover,
     .hero-card:hover,
     .video-card:hover {
@@ -255,7 +214,6 @@
       box-shadow: 0 14px 34px rgba(0,0,0,0.35);
       border-color: rgba(255, 183, 3, 0.25);
     }
-
     .hero-card h3,
     .card h3,
     .video-card h3 {
@@ -263,42 +221,20 @@
       font-size: 1.18rem;
       color: #ffffff;
     }
-
     .hero-card p,
     .card p,
     .video-card p,
     .section-subtitle,
     .subscribe-box p,
-    .contact-box p {
-      color: #d6d6d6;
-    }
+    .contact-box p { color: #d6d6d6; }
 
-    .section {
-      padding: 82px 0;
-    }
+    .section { padding: 82px 0; }
+    .section-title { font-size: 2rem; margin-bottom: 14px; }
+    .section-subtitle { max-width: 760px; margin-bottom: 34px; }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-
-    .section-subtitle {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .grid { display: grid; gap: 22px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
     .video-wrap {
       position: relative;
@@ -311,12 +247,10 @@
       background: #000;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .video-wrap:hover {
       transform: scale(1.01);
       box-shadow: 0 14px 34px rgba(0,0,0,0.35);
     }
-
     .video-wrap iframe,
     .video-wrap img {
       position: absolute;
@@ -326,19 +260,9 @@
       border: 0;
       object-fit: cover;
     }
-
-    .video-card {
-      padding: 18px;
-    }
-
-    .video-card .video-wrap {
-      margin-bottom: 16px;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: bold;
-    }
+    .video-card { padding: 18px; }
+    .video-card .video-wrap { margin-bottom: 16px; }
+    .stat-number { font-size: 2rem; font-weight: bold; }
 
     .social-link {
       padding: 12px 18px;
@@ -348,7 +272,6 @@
       font-weight: 700;
       transition: 0.2s ease;
     }
-
     .social-link:hover {
       transform: translateY(-2px);
       background: rgba(255,255,255,0.1);
@@ -359,7 +282,6 @@
       gap: 14px;
       margin-top: 18px;
     }
-
     .ask-form input,
     .ask-form textarea {
       width: 100%;
@@ -370,7 +292,6 @@
       border-radius: 12px;
       outline: none;
     }
-
     .ask-form input:focus,
     .ask-form textarea:focus {
       border-color: rgba(255, 183, 3, 0.45);
@@ -386,6 +307,21 @@
       z-index: 999;
       display: none;
     }
+    .bot-bubble p {
+      color: #f2f2f2;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .bot-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: 0;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
     .floating-youtube {
       position: fixed;
@@ -398,28 +334,11 @@
       font-weight: 800;
       z-index: 998;
       box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
     }
-
     .floating-youtube:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 10px #ff0000, 0 0 20px rgba(255, 0, 0, 0.55);
-    }
-
-    .bot-bubble p {
-      color: #f2f2f2;
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-    }
-
-    .bot-close {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      background: none;
-      border: 0;
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
     }
 
     .reveal {
@@ -427,7 +346,6 @@
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -445,45 +363,21 @@
     @media (max-width: 950px) {
       .hero-grid,
       .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
     }
-
     @media (max-width: 640px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .section {
-        padding: 64px 0;
-      }
-
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 14px; }
+      .btn { width: 100%; text-align: center; }
+      .hero p { font-size: 1rem; }
+      .section { padding: 64px 0; }
       .bot-bubble {
         left: 14px;
         right: 14px;
         bottom: 74px;
         max-width: none;
       }
-
       .floating-youtube {
         left: 14px;
         right: 14px;
@@ -500,11 +394,11 @@
         <img src="logo.png" alt="Brainrot Gaming Logo" class="site-logo" />
         <span>BRAINROT GAMING</span>
       </a>
-
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#content">Content</a>
         <a href="#video">Featured</a>
+        <a href="#top-video">Top Video</a>
         <a href="#latest-videos">Latest</a>
         <a href="#stats">Stats</a>
         <a href="#proof">Proof</a>
@@ -520,13 +414,11 @@
         <div class="tag">RAGE • CHAOS • GAMING</div>
         <h1>Welcome to <span>Brainrot Gaming</span></h1>
         <p>Assassin’s Creed gameplay, insane rage moments, epic fails, and chaotic gaming highlights from Brainrot Gaming.</p>
-
         <div class="button-group">
-          <a class="btn btn-primary" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <a class="btn btn-primary youtube-track" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           <a class="btn btn-secondary" href="#video">Watch Featured Video</a>
         </div>
       </div>
-
       <div class="hero-card">
         <h3>Why subscribe?</h3>
         <p>Real gameplay. Real fails. Real rage.</p>
@@ -540,13 +432,11 @@
     <div class="container">
       <h2 class="section-title">About the Channel</h2>
       <p class="section-subtitle">Brainrot Gaming is all about real gaming moments — the wins, the fails, the rage, and the chaos. This channel focuses on entertaining gameplay, funny reactions, challenge moments, and short-form clips that show what gaming feels like when pressure hits.</p>
-
       <div class="grid grid-2">
         <div class="card">
           <h3>What you can expect</h3>
           <p>If you enjoy gaming, funny moments, and a little rage, you’re in the right place. Here you’ll find Assassin’s Creed gameplay, crazy challenges, epic fails, and moments where the game tests patience.</p>
         </div>
-
         <div class="card">
           <h3>Channel Focus</h3>
           <p>Gameplay highlights, funny rage moments, quick clips, entertaining shorts, and gaming content that feels real, unfiltered, and fun to watch.</p>
@@ -559,18 +449,15 @@
     <div class="container">
       <h2 class="section-title">Featured Content</h2>
       <p class="section-subtitle">Expect regular uploads built around action, frustration, funny fails, and those satisfying moments when everything finally works.</p>
-
       <div class="grid grid-3">
         <div class="card">
           <h3>Assassin’s Creed Gameplay</h3>
           <p>Story missions, stealth moments, combat, challenge gameplay, and exciting action sequences.</p>
         </div>
-
         <div class="card">
           <h3>Funny Rage Moments</h3>
           <p>Honest reactions, gaming frustration, and those moments every gamer understands immediately.</p>
         </div>
-
         <div class="card">
           <h3>Shorts & Highlights</h3>
           <p>Quick clips, best moments, fails, and short-form content perfect for fast entertainment.</p>
@@ -582,27 +469,25 @@
   <section class="section reveal" id="video">
     <div class="container">
       <h2 class="section-title">Featured Video</h2>
-      <p class="section-subtitle">One featured video on the site. Keep this section clean instead of stuffing broken embeds everywhere.</p>
-
+      <p class="section-subtitle">A clean featured embed that sends people toward your best content without cluttering the page.</p>
       <div class="video-wrap">
         <iframe src="https://www.youtube.com/embed/40A8PK2rOpM" title="Featured YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <section class="section reveal" id="popular-video">
+  <section class="section reveal" id="top-video">
     <div class="container">
-      <h2 class="section-title">Channel Highlight</h2>
-      <p class="section-subtitle">A strong channel video worth pushing.</p>
-
+      <h2 class="section-title">Top Performing Video</h2>
+      <p class="section-subtitle">This section is wired for your channel ID. If you later add a YouTube Data API key, it can auto-pull the current top public video by views. Until then, it falls back to your selected best video so the site never breaks like a clown show.</p>
       <div class="video-card">
         <div class="video-wrap">
-          <img src="https://img.youtube.com/vi/6ibKn-aYxgI/maxresdefault.jpg" alt="Channel highlight thumbnail" />
+          <iframe id="topVideoEmbed" src="https://www.youtube.com/embed/40A8PK2rOpM" title="Top Performing Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <h3>Watch the channel highlight</h3>
-        <p>This avoids the ugly “video unavailable” box when embedding is disabled by YouTube.</p>
+        <h3 id="topVideoTitle">Top Brainrot Gaming pick</h3>
+        <p id="topVideoText">Currently showing a strong fallback video. Add a YouTube API key later if you want this to auto-update by view count.</p>
         <div class="button-group">
-          <a class="btn btn-primary" href="https://www.youtube.com/watch?v=6ibKn-aYxgI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <a id="topVideoButton" class="btn btn-primary youtube-track" href="https://www.youtube.com/watch?v=40A8PK2rOpM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         </div>
       </div>
     </div>
@@ -610,36 +495,10 @@
 
   <section class="section reveal" id="latest-videos">
     <div class="container">
-      <h2 class="section-title">Latest Videos</h2>
-      <p class="section-subtitle">Watch more gameplay, rage moments, and Brainrot Gaming highlights.</p>
-
-      <div class="grid grid-3">
-        <div class="video-card">
-          <div class="video-wrap">
-            <img src="https://img.youtube.com/vi/HOEzkRkBpUU/maxresdefault.jpg" alt="Latest video 1 thumbnail" />
-          </div>
-          <h3>Latest upload</h3>
-          <p>Watch this one directly on YouTube.</p>
-          <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=HOEzkRkBpUU" target="_blank" rel="noopener noreferrer">Open Video</a>
-        </div>
-
-        <div class="video-card">
-          <div class="video-wrap">
-            <img src="https://img.youtube.com/vi/cvCnu4l_-B0/maxresdefault.jpg" alt="Latest video 2 thumbnail" />
-          </div>
-          <h3>Another upload</h3>
-          <p>More gameplay and highlight moments.</p>
-          <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=cvCnu4l_-B0" target="_blank" rel="noopener noreferrer">Open Video</a>
-        </div>
-
-        <div class="video-card">
-          <div class="video-wrap">
-            <img src="https://img.youtube.com/vi/40A8PK2rOpM/maxresdefault.jpg" alt="Latest video 3 thumbnail" />
-          </div>
-          <h3>Featured upload</h3>
-          <p>Send traffic back to your channel instead of forcing another embed.</p>
-          <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=40A8PK2rOpM" target="_blank" rel="noopener noreferrer">Open Video</a>
-        </div>
+      <h2 class="section-title">Latest Uploads</h2>
+      <p class="section-subtitle">Automatically showing the newest videos from Brainrot Gaming through your uploads playlist.</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UU0brnbM_0wJjJ3ARH8cuEYw" title="Brainrot Gaming Latest Uploads" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -648,33 +507,27 @@
     <div class="container">
       <h2 class="section-title">Brainrot Gaming Stats</h2>
       <p class="section-subtitle">Current channel performance and growth</p>
-
       <div class="grid grid-3">
         <div class="card">
           <h3>Subscribers</h3>
           <p id="subCount" class="stat-number">1.52K+</p>
         </div>
-
         <div class="card">
           <h3>Total Videos</h3>
           <p class="stat-number">43</p>
         </div>
-
         <div class="card">
           <h3>Uploads / Week</h3>
           <p class="stat-number">~2</p>
         </div>
-
         <div class="card">
           <h3>Total Views</h3>
           <p class="stat-number">50K+</p>
         </div>
-
         <div class="card">
           <h3>Best Platform</h3>
           <p class="stat-number">YouTube</p>
         </div>
-
         <div class="card">
           <h3>Content Style</h3>
           <p class="stat-number">Chaos</p>
@@ -687,18 +540,15 @@
     <div class="container">
       <h2 class="section-title">Why People Watch Brainrot Gaming</h2>
       <p class="section-subtitle">A few reasons visitors stick around instead of bouncing like confused NPCs.</p>
-
       <div class="grid grid-3">
         <div class="card">
           <h3>🔥 50K+ Views</h3>
           <p>Thousands of viewers have already watched the chaos, rage moments, and gameplay highlights.</p>
         </div>
-
         <div class="card">
           <h3>🎮 Real Gameplay</h3>
           <p>No fake reactions, no overcooked nonsense. Just real gameplay, real fails, and real pressure moments.</p>
         </div>
-
         <div class="card">
           <h3>⚡ Fast Highlights</h3>
           <p>Quick clips, satisfying moments, and entertaining uploads that get to the point fast.</p>
@@ -711,29 +561,10 @@
     <div class="container">
       <div class="subscribe-box">
         <h2 class="section-title">Subscribe Faster</h2>
-        <p>Make it stupidly easy for visitors to subscribe without making them hunt for your channel.</p>
+        <p>Subscribe instantly and stay updated with the latest chaos from Brainrot Gaming.</p>
         <div style="margin-top:25px; text-align:center;">
-          <iframe
-            src="https://www.youtube.com/subscribe_embed?usegapi=1&channelid=UC0brnbM_0wJjJ3ARH8cuEYw&layout=full&count=default"
-            style="border:none;height:110px;width:320px;max-width:100%;background:transparent;"
-            title="YouTube subscribe button">
-          </iframe>
+          <iframe src="https://www.youtube.com/subscribe_embed?usegapi=1&channelid=UC0brnbM_0wJjJ3ARH8cuEYw&layout=full&count=default" style="border:none;height:110px;width:320px;max-width:100%;background:transparent;" title="YouTube subscribe button"></iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section reveal" id="ask">
-    <div class="container">
-      <div class="contact-box">
-        <h2 class="section-title">Ask Me / Suggest a Video</h2>
-        <p>Drop a challenge, collab idea, or gameplay suggestion. This is smarter than adding a dead comment section nobody uses.</p>
-        <form class="ask-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <textarea name="message" rows="5" placeholder="Your question, challenge, or video idea" required></textarea>
-          <button class="btn btn-primary" type="submit">Send Message</button>
-        </form>
       </div>
     </div>
   </section>
@@ -786,13 +617,27 @@
     </div>
   </section>
 
+  <section class="section reveal" id="ask">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">Ask Me / Suggest a Video</h2>
+        <p>Drop a challenge, collab idea, or gameplay suggestion. This is smarter than adding a dead comment section nobody uses.</p>
+        <form class="ask-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="5" placeholder="Your question, challenge, or video idea" required></textarea>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal" id="socials">
     <div class="container">
       <h2 class="section-title">Follow Brainrot Gaming</h2>
       <p class="section-subtitle">Stay connected for updates, clips, and more content.</p>
-
       <div class="socials">
-        <a class="social-link" href="https://youtube.com/@brainrotgaming61?si=jeIyWwk6SBZ8SC_k" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="social-link youtube-track" href="https://youtube.com/@brainrotgaming61?si=jeIyWwk6SBZ8SC_k" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a class="social-link" href="https://www.facebook.com/share/1KZwLpGJ67/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a class="social-link" href="https://www.instagram.com/k_r_ish1501?igsh=MWJ3dHkxOHdrdTVv&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
@@ -806,26 +651,26 @@
         <p>For collaborations, business inquiries, sponsorships, or creator opportunities, use email. Do not put your phone number on a public site unless you enjoy spam and random garbage.</p>
         <div class="contact-buttons">
           <a class="btn btn-primary" href="mailto:edvkrish@gmail.com">Email Me</a>
-          <a class="btn btn-secondary" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Channel Link</a>
+          <a class="btn btn-secondary youtube-track" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Channel Link</a>
         </div>
       </div>
     </div>
   </section>
 
-    <section class="section reveal" id="final-cta">
+  <section class="section reveal" id="final-cta">
     <div class="container">
       <div class="subscribe-box">
         <h2 class="section-title">Ready for More Chaos?</h2>
         <p>Watch the featured video, subscribe on YouTube, and send your next challenge. That’s the whole pipeline. Clean, simple, effective.</p>
         <div class="button-group">
-          <a class="btn btn-primary" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Go to YouTube</a>
+          <a class="btn btn-primary youtube-track" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">Go to YouTube</a>
           <a class="btn btn-secondary" href="#ask">Suggest a Video</a>
         </div>
       </div>
     </div>
   </section>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="container">
       <p>© 2026 Brainrot Gaming</p>
       <p>Assassin’s Creed gameplay • Rage moments • Gaming chaos</p>
@@ -838,13 +683,18 @@
     <a class="btn btn-primary" href="#video">Watch Featured</a>
   </div>
 
-  <a id="floating-youtube" class="floating-youtube" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+  <a id="floating-youtube" class="floating-youtube youtube-track" href="https://youtube.com/@brainrotgaming61" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
 
   <script>
+    const CHANNEL_ID = 'UC0brnbM_0wJjJ3ARH8cuEYw';
+    const UPLOADS_PLAYLIST_ID = 'UU0brnbM_0wJjJ3ARH8cuEYw';
+    const DEFAULT_TOP_VIDEO_ID = '40A8PK2rOpM';
+    const DEFAULT_TOP_VIDEO_TITLE = 'Top Brainrot Gaming pick';
+    const YOUTUBE_API_KEY = ''; // Optional: paste a YouTube Data API key here later to auto-pull top public video by views.
+
     async function getSubs() {
       try {
-        const channelID = 'UC0brnbM_0wJjJ3ARH8cuEYw';
-        const response = await fetch('https://api.socialcounts.org/youtube-live-subscriber-count/' + channelID);
+        const response = await fetch('https://api.socialcounts.org/youtube-live-subscriber-count/' + CHANNEL_ID);
         const data = await response.json();
         const subEl = document.getElementById('subCount');
         if (subEl && data.est_sub) {
@@ -852,46 +702,106 @@
         }
       } catch (error) {
         const subEl = document.getElementById('subCount');
-        if (subEl) {
-          subEl.innerText = '1.52K+';
+        if (subEl) subEl.innerText = '1.52K+';
+      }
+    }
+
+    function setTopVideo(videoId, titleText, bodyText) {
+      const embed = document.getElementById('topVideoEmbed');
+      const title = document.getElementById('topVideoTitle');
+      const text = document.getElementById('topVideoText');
+      const button = document.getElementById('topVideoButton');
+
+      if (embed) embed.src = 'https://www.youtube.com/embed/' + videoId;
+      if (title) title.textContent = titleText || DEFAULT_TOP_VIDEO_TITLE;
+      if (text) text.textContent = bodyText || 'Currently showing a strong fallback video from Brainrot Gaming.';
+      if (button) button.href = 'https://www.youtube.com/watch?v=' + videoId;
+    }
+
+    async function loadTopVideo() {
+      if (!YOUTUBE_API_KEY) {
+        setTopVideo(
+          DEFAULT_TOP_VIDEO_ID,
+          DEFAULT_TOP_VIDEO_TITLE,
+          'Currently showing a strong fallback video. Add a YouTube API key later if you want this section to auto-update by view count.'
+        );
+        return;
+      }
+
+      try {
+        const url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + CHANNEL_ID + '&maxResults=1&order=viewCount&type=video&key=' + YOUTUBE_API_KEY;
+        const response = await fetch(url);
+        const data = await response.json();
+        const item = data.items && data.items[0];
+
+        if (item && item.id && item.id.videoId) {
+          setTopVideo(
+            item.id.videoId,
+            item.snippet.title,
+            'Automatically loaded from your channel using the YouTube Data API, sorted by public view count.'
+          );
+        } else {
+          setTopVideo(DEFAULT_TOP_VIDEO_ID, DEFAULT_TOP_VIDEO_TITLE, 'Fell back to your selected top video because the API returned nothing useful.');
         }
+      } catch (error) {
+        setTopVideo(DEFAULT_TOP_VIDEO_ID, DEFAULT_TOP_VIDEO_TITLE, 'Fell back to your selected top video because the API request failed.');
+      }
+    }
+
+    function trackOutboundClicks() {
+      document.querySelectorAll('.youtube-track, a[href*="youtube"], a[href*="youtu.be"]').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_youtube', {
+              event_category: 'engagement',
+              event_label: link.href
+            });
+          }
+        });
+      });
+
+      const emailLink = document.querySelector('a[href^="mailto:"]');
+      if (emailLink) {
+        emailLink.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_email', {
+              event_category: 'engagement',
+              event_label: emailLink.href
+            });
+          }
+        });
+      }
+    }
+
+    function initReveal() {
+      const revealEls = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => observer.observe(el));
+    }
+
+    function initBot() {
+      const ytBot = document.getElementById('yt-bot');
+      const botClose = document.getElementById('bot-close');
+      setTimeout(() => {
+        if (ytBot) ytBot.style.display = 'block';
+      }, 2200);
+      if (botClose) {
+        botClose.addEventListener('click', () => {
+          ytBot.style.display = 'none';
+        });
       }
     }
 
     getSubs();
     setInterval(getSubs, 10000);
-
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => observer.observe(el));
-
-    const ytBot = document.getElementById('yt-bot');
-    const botClose = document.getElementById('bot-close');
-    setTimeout(() => {
-      if (ytBot) ytBot.style.display = 'block';
-    }, 2200);
-    if (botClose) {
-      botClose.addEventListener('click', () => {
-        ytBot.style.display = 'none';
-      });
-    }
-
-    document.querySelectorAll('a[href*="youtube"], a[href*="youtu.be"]').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (typeof gtag === 'function') {
-          gtag('event', 'click_youtube', {
-            event_category: 'engagement',
-            event_label: link.href
-          });
-        }
-      });
-    });
+    loadTopVideo();
+    initReveal();
+    initBot();
+    trackOutboundClicks();
   </script>
 </body>
 </html>
