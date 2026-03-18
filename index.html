@@ -746,20 +746,20 @@
   <script>
     const CHANNEL_ID = 'UC0brnbM_0wJjJ3ARH8cuEYw';
     const UPLOADS_PLAYLIST_ID = 'UU0brnbM_0wJjJ3ARH8cuEYw';
-    const DEFAULT_TOP_VIDEO_ID = '40A8PK2rOpM';
-    const FEATURED_VIDEO_ID = '40A8PK2rOpM';
-    const FEATURED_VIDEO_TITLE = 'Pure chaos: Brainrot Gaming featured pick';
-    const DEFAULT_TOP_VIDEO_TITLE = 'Top Brainrot Gaming pick';
+    const DEFAULT_TOP_VIDEO_ID = 'FI8R6plOeto';
+    const FEATURED_VIDEO_ID = 'VzOb88oq3Is';
+    const FEATURED_VIDEO_TITLE =  'Why Do I Keep Doing This... 💀 (Worst Death Ever)';
+    const DEFAULT_TOP_VIDEO_TITLE = 'Latest Brainrot Gaming upload';
     const YOUTUBE_API_KEY = '';  // Optional: paste a YouTube Data API key here later to auto-pull top public video by views.
     const DEFAULT_LATEST_VIDEOS = [
-      { id: '40A8PK2rOpM', title: 'Pure chaos: Brainrot Gaming featured pick' },
-      { id: 'HOEzkRkBpUU', title: 'Latest Brainrot Gaming upload' },
-      { id: 'cvCnu4l_-B0', title: 'Another chaos-filled upload' },
-      { id: '6ibKn-aYxgI', title: 'Top highlight from the channel' },
-      { id: '40A8PK2rOpM', title: 'Rage moments and wild gameplay' },
-      { id: 'HOEzkRkBpUU', title: 'Fast-paced gaming highlights' }
-    ];
-
+       { id: 'FI8R6plOeto', title: 'Latest Brainrot Gaming upload' },
+  { id: 'VzOb88oq3Is', title: 'Worst death ever' },
+  { id: 'sR4u2L_kSXo', title: 'Chaos-filled gaming moment' },
+  { id: 'HOEzkRkBpUU', title: 'Fast-paced gaming highlight' },
+  { id: 'MdAsGJYjKVk', title: 'Top Brainrot Gaming clip' },
+  { id: 'Mw0ibYzFPYQ', title: 'Another wild upload' }
+];
+     
     async function getSubs() {
       try {
         const response = await fetch('https://api.socialcounts.org/youtube-live-subscriber-count/' + CHANNEL_ID);
