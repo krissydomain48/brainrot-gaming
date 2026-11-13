@@ -1,5 +1,5 @@
 # brainrot-gaming
-Official website for Brainrot Krissy — a gaming content channel focused on Assassin’s Creed gameplay, funny rage moments, gaming highlights, epic fails, and entertaining gaming clips.
+Official website for Brainrot Krissy — a Brisbane-based entertainment channel made with friends: vlogs, Krissy Talks podcasts and talk shows, challenges, and some gaming chaos.
 
 ## How the site updates
 
