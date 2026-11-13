@@ -265,6 +265,50 @@
     .video-card .video-wrap { margin-bottom: 16px; }
     .stat-number { font-size: 2rem; font-weight: bold; }
 
+    .sub-title { font-size: 1.4rem; margin: 48px 0 18px; color: #fff; }
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+    .short-card {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .short-card:hover { transform: translateY(-4px); border-color: rgba(255,183,3,0.35); }
+    .short-card img { width: 100%; height: 100%; object-fit: cover; }
+    .short-card span {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 28px 10px 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.3;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .merch-card { display: flex; flex-direction: column; }
+    .merch-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      background: #111;
+    }
+    .merch-card h3 { font-size: 1.02rem; }
+    .merch-card .price { color: #ffb703; font-weight: 800; font-size: 1.15rem; margin: 4px 0 14px; }
+    .merch-card .btn { margin-top: auto; text-align: center; }
+
     .social-link {
       padding: 12px 18px;
       border-radius: 12px;
@@ -369,10 +413,12 @@
       .grid-3,
       .grid-2 { grid-template-columns: 1fr; }
       .hero { min-height: auto; }
+      .shorts-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 640px) {
       .nav-inner { flex-direction: column; align-items: flex-start; }
       .nav-links { gap: 14px; }
+      .shorts-grid { grid-template-columns: repeat(2, 1fr); }
       .btn { width: 100%; text-align: center; }
       .hero p { font-size: 1rem; }
       .section { padding: 64px 0; }
@@ -400,13 +446,11 @@
       </a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#video">Featured</a>
         <a href="#latest-videos">Videos</a>
+        <a href="#vlogs">Vlogs</a>
+        <a href="#merch">Merch</a>
         <a href="#article">Article</a>
         <a href="#creator">Creator</a>
-        <a href="#stats">Stats</a>
-        <a href="#collab">Collab</a>
-        <a href="#ask">Suggest</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -530,9 +574,35 @@
   <section class="section reveal" id="latest-videos">
     <div class="container">
       <h2 class="section-title">Latest Videos</h2>
-      <p class="section-subtitle">The newest uploads from Brainrot Krissy.</p>
-
+      <p class="section-subtitle">The newest uploads from Brainrot Krissy — updated automatically from YouTube.</p>
       <div id="latestVideosGrid" class="grid grid-3"></div>
+
+      <h3 class="sub-title">Latest Shorts</h3>
+      <div id="shortsGrid" class="shorts-grid"></div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="vlogs">
+    <div class="container">
+      <div class="tag">OFF THE CONTROLLER</div>
+      <h2 class="section-title">Vlogs</h2>
+      <p class="section-subtitle">Not just gaming — day trips around Brisbane, Nepali village stories, and real life with the same chaotic energy.</p>
+      <div id="vlogsGrid" class="grid grid-3"></div>
+      <div class="button-group" style="margin-top:24px;">
+        <a class="btn btn-secondary youtube-track" href="https://www.youtube.com/playlist?list=PLKE8nRFo6L1M" target="_blank" rel="noopener noreferrer">All Travel Vlogs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="merch">
+    <div class="container">
+      <div class="tag">ROTGOBLIN DESIGNS</div>
+      <h2 class="section-title">Merch Shop</h2>
+      <p class="section-subtitle">Mugs, bottles and desk mats designed by me — fuel for your gaming sessions. Shipped through Etsy.</p>
+      <div id="merchGrid" class="grid grid-3"></div>
+      <div class="button-group" style="margin-top:24px;">
+        <a class="btn btn-primary merch-track" href="https://www.etsy.com/shop/RotGoblinDesigns" target="_blank" rel="noopener noreferrer">Shop all merch on Etsy</a>
+      </div>
     </div>
   </section>
 
@@ -784,15 +854,41 @@
     const CONTACT_EMAIL = 'edvkrish@gmail.com';
     // Optional: a YouTube Data API key auto-loads your most-viewed video into "Top Performing Video".
     const YOUTUBE_API_KEY = '';
-    const LATEST_VIDEOS = [
-      { id: 'FI8R6plOeto', title: 'I Got Absolutely Destroyed… Wasn\'t Expecting That 😭' },
-      { id: 'VzOb88oq3Is', title: 'This Is What Peak Brainrot Looks Like 💀' },
-      { id: 'sR4u2L_kSXo', title: 'The Most Brutal One-Shot I\'ve Ever Taken | AC Valhalla' },
-      { id: 'HOEzkRkBpUU', title: 'Pure chaos: My worst Assassin\'s Creed deaths compiled' },
-      { id: 'MdAsGJYjKVk', title: 'My Brother Nearly Rage Quit After This | FC 26' },
-      { id: 'Mw0ibYzFPYQ', title: 'INSANE Viking Battles in Assassin’s Creed Valhalla! ⚔️' }
+    // Latest videos, shorts and vlogs come from data/videos.json, which a GitHub
+    // Action refreshes from YouTube every 2 hours. This list is only a fallback.
+    const FALLBACK_VIDEOS = {
+      latest: [
+        { id: 's0g1RB8PwB4', title: 'Is Tangalooma Worth $180? Brutally Honest Day Trip 🏝️' },
+        { id: 'ZLaInMc-tIE', title: 'We\'re Not Cowboys, We\'re BUFFALO BOYS 😂 Nepali Village Life & Country Music | Krissy Talks' },
+        { id: 'FI8R6plOeto', title: 'I Got Absolutely Destroyed… Wasn\'t Expecting That 😭' },
+        { id: 'VzOb88oq3Is', title: 'This Is What Peak Brainrot Looks Like 💀' },
+        { id: 'sR4u2L_kSXo', title: 'The Most Brutal One-Shot I\'ve Ever Taken | AC Valhalla' },
+        { id: 'HOEzkRkBpUU', title: 'Pure chaos: My worst Assassin\'s Creed deaths compiled' }
+      ],
+      shorts: [],
+      vlogs: [
+        { id: 's0g1RB8PwB4', title: 'Is Tangalooma Worth $180? Brutally Honest Day Trip 🏝️' },
+        { id: 'hnMvCh74RVk', title: 'We Took a Day Off Gaming… Then My Brother Fell Off the Kayak 😂 | Brisbane Vlog' },
+        { id: 'VinLjfbKOBc', title: 'Australia मा मेरो पहिलो VLOG Enoggera Reservoir' }
+      ]
+    };
+
+    // Merch from the RotGoblinDesigns Etsy shop. Add/remove items here.
+    const ETSY_SHOP = 'https://www.etsy.com/shop/RotGoblinDesigns';
+    const ETSY_IMG = 'https://i.etsystatic.com/68524372/r/il/';
+    const MERCH = [
+      { id: '4598330895', title: 'Brainrot Official 22oz Insulated Water Bottle — Fiery Skull', price: '49.95', img: 'f4c5e2/8701980468/il_570xN.8701980468_2nmg.jpg' },
+      { id: '4597156370', title: 'Heat-Changing Gaming Mug — Low HP, High Caffeine', price: '26.44', img: '73aec3/8691822922/il_570xN.8691822922_9ktw.jpg' },
+      { id: '4597075573', title: 'Respawn Fuel Gaming Coffee Mug — Coffee Required, Skill Optional', price: '24.99', img: '823302/8739159589/il_570xN.8739159589_nta9.jpg' },
+      { id: '4598365403', title: 'Streamer Fuel 22oz Water Bottle — Kangaroo Gaming Design', price: '51.95', img: '6a4d87/8750068699/il_570xN.8750068699_b1mi.jpg' },
+      { id: '4597760293', title: 'Fire-Breathing Dragon Gaming Desk Mat (XL)', price: '44.99', img: 'a08c62/8744913919/il_570xN.8744913919_4pd8.jpg' },
+      { id: '4600187306', title: 'Touch Grass? Is That a DLC — Funny Gamer Mug', price: '24.99', img: '176b2c/8764761303/il_570xN.8764761303_7hok.jpg' }
     ];
     // =================================
+
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const ytWatch = (id) => 'https://www.youtube.com/watch?v=' + encodeURIComponent(id);
+    const ytThumb = (id) => 'https://img.youtube.com/vi/' + encodeURIComponent(id) + '/hqdefault.jpg';
 
     async function getSubs() {
       // Best-effort live count; the number written in the HTML stays if this fails.
@@ -858,8 +954,11 @@
       });
     }
 
-    function trackOutboundClicks() {
-      document.querySelectorAll('.youtube-track, a[href*="youtube"], a[href*="youtu.be"]').forEach((link) => {
+    function trackOutboundClicks(root = document) {
+      if (!root) return;
+      root.querySelectorAll('.youtube-track, a[href*="youtube"], a[href*="youtu.be"]').forEach((link) => {
+        if (link.dataset.tracked) return;
+        link.dataset.tracked = '1';
         link.addEventListener('click', () => {
           if (typeof gtag === 'function') {
             gtag('event', 'click_youtube', {
@@ -905,26 +1004,79 @@
       }
     }
 
-    function loadLatestVideos() {
-      const grid = document.getElementById('latestVideosGrid');
-      if (!grid) return;
-
-      const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-      grid.innerHTML = LATEST_VIDEOS.map((video) => `
-        <div class="video-card reveal visible">
+    function videoCards(list, blurb) {
+      return list.map((v) => `
+        <div class="video-card">
           <div class="video-wrap">
-            <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener noreferrer" class="youtube-track">
-              <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${esc(video.title)}" loading="lazy">
+            <a href="${ytWatch(v.id)}" target="_blank" rel="noopener noreferrer" class="youtube-track">
+              <img src="${ytThumb(v.id)}" alt="${esc(v.title)}" loading="lazy">
             </a>
           </div>
-          <h3>${esc(video.title)}</h3>
-          <p>Watch this Brainrot Krissy upload on YouTube.</p>
-          <a class="btn btn-secondary youtube-track" href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener noreferrer">Watch Video</a>
-        </div>
-      `).join('');
+          <h3>${esc(v.title)}</h3>
+          <p>${blurb}</p>
+          <a class="btn btn-secondary youtube-track" href="${ytWatch(v.id)}" target="_blank" rel="noopener noreferrer">Watch Video</a>
+        </div>`).join('');
     }
 
-    loadLatestVideos();
+    function renderVideos(data) {
+      const latest = document.getElementById('latestVideosGrid');
+      const shorts = document.getElementById('shortsGrid');
+      const vlogs = document.getElementById('vlogsGrid');
+
+      if (latest) latest.innerHTML = videoCards(data.latest || [], 'Watch this Brainrot Krissy upload on YouTube.');
+      if (vlogs) vlogs.innerHTML = videoCards(data.vlogs || [], 'Real life, unfiltered — watch the vlog on YouTube.');
+      if (shorts) {
+        const list = data.shorts || [];
+        shorts.innerHTML = list.map((v) => `
+          <a class="short-card youtube-track" href="https://www.youtube.com/shorts/${encodeURIComponent(v.id)}" target="_blank" rel="noopener noreferrer">
+            <img src="${ytThumb(v.id)}" alt="${esc(v.title)}" loading="lazy">
+            <span>${esc(v.title.replace(/#shorts/ig, '').trim())}</span>
+          </a>`).join('');
+        shorts.previousElementSibling.style.display = list.length ? '' : 'none';
+      }
+      trackOutboundClicks(document.getElementById('latest-videos'));
+      trackOutboundClicks(document.getElementById('vlogs'));
+    }
+
+    async function loadVideos() {
+      renderVideos(FALLBACK_VIDEOS);
+      try {
+        const res = await fetch('data/videos.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data && Array.isArray(data.latest) && data.latest.length) renderVideos(data);
+      } catch (error) { /* keep fallback */ }
+    }
+
+    function renderMerch() {
+      const grid = document.getElementById('merchGrid');
+      if (!grid) return;
+      grid.innerHTML = MERCH.map((m) => {
+        const url = 'https://www.etsy.com/listing/' + encodeURIComponent(m.id);
+        return `
+        <div class="card merch-card">
+          <a href="${url}" target="_blank" rel="noopener noreferrer" class="merch-track">
+            <img src="${ETSY_IMG + m.img}" alt="${esc(m.title)}" loading="lazy">
+          </a>
+          <h3>${esc(m.title)}</h3>
+          <p class="price">AU$${esc(m.price)}</p>
+          <a class="btn btn-primary merch-track" href="${url}" target="_blank" rel="noopener noreferrer">Buy on Etsy</a>
+        </div>`;
+      }).join('');
+    }
+
+    function trackMerchClicks() {
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('.merch-track');
+        if (link && typeof gtag === 'function') {
+          gtag('event', 'click_merch', { event_category: 'merch', event_label: link.href });
+        }
+      });
+    }
+
+    renderMerch();
+    trackMerchClicks();
+    loadVideos();
     getSubs();
     loadTopVideo();
     initAskForm();
