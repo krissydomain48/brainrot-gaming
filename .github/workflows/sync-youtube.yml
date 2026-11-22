@@ -34,6 +34,9 @@ jobs:
       - name: Pull latest videos and stats from YouTube
         run: python scripts/sync_youtube.py
 
+      - name: Build the Krissy Talks page and sitemap
+        run: python scripts/build_krissy_talks.py
+
       - name: Email subscribers about a new video
         env:
           KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
@@ -43,13 +46,13 @@ jobs:
       - name: Commit if changed
         id: commit
         run: |
-          if git diff --quiet -- data/ && [ -z "$(git ls-files --others --exclude-standard data/)" ]; then
+          if git diff --quiet -- data/ krissy-talks/ sitemap.xml && [ -z "$(git ls-files --others --exclude-standard data/ krissy-talks/)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/ krissy-talks/ sitemap.xml
           git commit -m "Sync latest YouTube videos"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
