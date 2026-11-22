@@ -12,3 +12,24 @@ Official website for Brainrot Krissy — a Brisbane-based entertainment channel 
   `scripts/sync_youtube.py`).
 - **Merch** is the `MERCH` list near the top of the script in `index.html`
   (RotGoblinDesigns on Etsy). Add or remove items there.
+- **Channel stats** (subscribers, total views, videos, uploads/week, join date) and
+  the **Top Performing Video** also come from `data/videos.json`, read from the
+  channel's public About page and uploads list.
+
+## Email: "Join the Crew" + new-video emails (Kit)
+
+1. Create a free account at kit.com and a form (Grow → Landing Pages & Forms).
+   Put the form's number in `KIT_FORM_ID` in `index.html` — the signup section
+   appears once it's set.
+2. In Kit: Settings → Developer → create a **V4 API key**. In GitHub: repo
+   Settings → Secrets and variables → Actions → New repository secret named
+   `KIT_API_KEY`.
+3. Test without emailing anyone: Actions → "Sync YouTube videos" → Run workflow →
+   tick "Only create a TEST DRAFT in Kit". A draft appears in Kit → Broadcasts.
+4. From then on, each new full video (not Shorts) emails your subscribers once.
+   `data/notified.json` remembers what was already announced.
+
+## Ask Krissy
+
+Messages open the visitor's email app addressed to `CONTACT_EMAIL`. To receive
+them without that step, create a free Formspree form and set `FORMSPREE_ID`.

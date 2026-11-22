@@ -1,11 +1,17 @@
 name: Sync YouTube videos
 
-# Refreshes data/videos.json (latest uploads, shorts, vlogs) from the channel
-# and rebuilds the GitHub Pages site when something changed.
+# Refreshes data/videos.json (latest uploads, shorts, vlogs, channel stats) from
+# the channel, emails Kit subscribers about a new video, and rebuilds the
+# GitHub Pages site when something changed.
 on:
   schedule:
     - cron: "17 */2 * * *"   # every 2 hours
   workflow_dispatch:          # "Run workflow" button in the Actions tab
+    inputs:
+      kit_test:
+        description: "Only create a TEST DRAFT in Kit (nobody is emailed)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -19,25 +25,31 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Pull latest videos from YouTube
+      - name: Pull latest videos and stats from YouTube
         run: python scripts/sync_youtube.py
+
+      - name: Email subscribers about a new video
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          KIT_TEST: ${{ inputs.kit_test && '1' || '' }}
+        run: python scripts/notify_new_video.py
 
       - name: Commit if changed
         id: commit
         run: |
-          if git diff --quiet -- data/videos.json; then
+          if git diff --quiet -- data/ && [ -z "$(git ls-files --others --exclude-standard data/)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/videos.json
+          git add data/
           git commit -m "Sync latest YouTube videos"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
